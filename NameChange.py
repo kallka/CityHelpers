@@ -5,11 +5,12 @@
 #   - File names always end in 001-100
 #
 
-# Save Path Name and Index
+# Save path name and index
 main_path = 'https://pw.lacounty.gov/sur/nas/landrecords/survey/RS277/RS277-001.pdf'
 index = 65
 next_path = main_path
 
+# Change names from 001-099
 for tens in range(0, 10):
     for ones in range(0, 10):
         if tens == 0 and ones == 0:
@@ -19,3 +20,7 @@ for tens in range(0, 10):
             if tens >= 1:
                 next_path = next_path[:index-1] + chr(tens + 48) + next_path[index:]
             print(next_path)
+
+# Hard code file 100:
+next_path = next_path[:index-2] + chr(49) + chr(48) + chr(48) + next_path[index + 1:]
+print(next_path)
